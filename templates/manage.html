@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<a href="{% url 'highway.views.create' %}"><button class="btn btn-success">{% trans 'Add Domain' %}</button></a>
+<h1>Domains</h1>
+{% for domain in domains %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{domain.prefix}} <span class="pull-right"><a href="#" class="action-domain-delete" data-url="{% url 'highway.views.delete' domain.id %}"><button class="btn btn-xs btn-danger">Delete</button></a></span></h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4">
+            Domain: {{domain.get_fqdn}}
+        </div>
+        <div class="col-md-4">
+            Target: {{domain.target}}
+        </div>
+    </div>
+</div>
+{% empty %}
+<div class="lead">{% trans 'You do not have any domains' %}</div>
+{% endfor %}
+<script type="text/javascript">
+    $("a.action-domain-delete").click(function(){
+        var url = (this).getAttribute('data-url');
+        if (confirm("{% trans 'Are you sure you want to remove this domain?' %}")) {
+            redirect(url);
+        }
+        return false;
+    });
+</script>
+{% endblock %}

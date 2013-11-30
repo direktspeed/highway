@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Create Domain</h1>
+<div>
+{% crispy form %}
+</div>
+<script type="text/javascript">
+    $("#button-id-cancel").click(function(){
+        redirect("{% url 'manage' %}");
+    });
+</script>
+{% endblock %}

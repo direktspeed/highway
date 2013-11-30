@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extra_head_css %}
+<link href="{{STATIC_URL}}css/bg.css" rel="stylesheet">
+{% endblock %}
+
+{% block base_content %}
+<div id="login" class="center">
+  <div class="logo"><img src="{{ STATIC_URL }}img/logo.png"/></div>
+  <div class="lead">Free {{domain}} domain for Shipyard deployments</div>
+  <div class="lead">Please Login</div>
+  <a href="{% url "social:begin" 'github' %}"><button class="btn btn-lg btn-primary">Github</button></a>
+  <a href="{% url "social:begin" 'twitter' %}"><button class="btn btn-lg btn-primary">Twitter</button></a>
+</div>
+<script type="text/javascript">
+  $("input#password").keypress(function(e){
+    if (e.keyCode == 13) {
+      $("form#login").submit();
+    }
+  });
+  $("a#btn-submit").click(function(){
+    $("form#login").submit();
+  });
+  $(function(){
+    $("a.entypo-social").tooltip({placement: 'bottom'});
+    $("form#login").validate();
+  });
+</script>
+{% endblock %}
