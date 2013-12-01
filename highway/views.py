@@ -50,7 +50,8 @@ def manage(request):
 @login_required
 def create(request):
     form = DomainForm()
-    form.fields['target'].initial = request.META.get('REMOTE_ADDR')
+    # need a way to grab real-ip from hipache
+    #form.fields['target'].initial = request.META.get('REMOTE_ADDR')
     if request.method == 'POST':
         form = DomainForm(request.POST)
         target = form.data.get('target')
