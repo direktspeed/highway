@@ -21,3 +21,6 @@ def app_revision(context):
 
 def google_analytics_code(context):
     return { 'GOOGLE_ANALYTICS_CODE': getattr(settings, 'GOOGLE_ANALYTICS_CODE', None)}
+
+def google_analytics_domain(context):
+    return { 'GOOGLE_ANALYTICS_DOMAIN': getattr(settings, 'GOOGLE_ANALYTICS_DOMAIN', None)}

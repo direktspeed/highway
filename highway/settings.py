@@ -59,6 +59,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'highway.context_processors.app_name',
     'highway.context_processors.app_revision',
     'highway.context_processors.google_analytics_code',
+    'highway.context_processors.google_analytics_domain',
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
 )
@@ -132,6 +133,7 @@ AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', '')
 BASE_DOMAIN = os.getenv('BASE_DOMAIN', 'apps.example.com')
 R53_ZONE = os.getenv('R53_ZONE', 'unknown')
 GOOGLE_ANALYTICS_CODE = os.getenv('GOOGLE_ANALYTICS_CODE')
+GOOGLE_ANALYTICS_DOMAIN = os.getenv('GOOGLE_ANALYTICS_DOMAIN')
 RECORD_TTL = os.getenv('RECORD_TTL', 3600)
 SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
