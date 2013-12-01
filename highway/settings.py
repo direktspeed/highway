@@ -81,11 +81,14 @@ LOGIN_REDIRECT_URL = '/manage/'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'highway.db'),
+        'ENGINE': 'django.db.backends.{}'.format(os.getenv('DB_ENGINE', 'sqlite3')),
+        'NAME': os.getenv('DB_NAME', 'highway.db'),
+        'USER': os.getenv('DB_USER', None),
+        'PASSWORD': os.getenv('DB_PASS', None),
+        'HOST': os.getenv('DB_HOST', None),
+        'PORT': os.getenv('DB_PORT', None),
     }
 }
 

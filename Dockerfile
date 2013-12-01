@@ -7,6 +7,7 @@ run easy_install pip
 run pip install uwsgi
 env APP_DIR /app
 add . $APP_DIR
+add run.sh /usr/local/bin/run
 run pip install -r $APP_DIR/requirements.txt
 expose 8000
-cmd ["uwsgi", "--ini", "/app/app.ini"]
+cmd ["/usr/local/bin/run"]
