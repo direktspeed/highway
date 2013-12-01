@@ -7,12 +7,26 @@ div.main-content {
   margin: 0px
   padding: 0px;
 }
+div#login {
+  width: 450px;
+  color: #8a8a8a;
+  background: #fafafa;
+  text-align: center;
+  margin: 70px auto 0 auto;
+  padding: 45px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 1px solid #bababa;
+}
 @media (max-width: 768px) {
   div.main-content {
     margin-top: 75px;
   }
   ul#nav {
     margin-left: 5px;
+  }
+  div#login {
+    width: 300px;
   }
 }
 .control-label {
@@ -79,17 +93,6 @@ table, a.thumbnail, ul.nav-stacked {
 }
 label.error {
   color: #b20000
-}
-div#login {
-  width: 30%;
-  color: #8a8a8a;
-  background: #fafafa;
-  text-align: center;
-  margin: 70px auto 0 auto;
-  padding: 45px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  border: 1px solid #bababa;
 }
 div.logo {
   margin: 10px 0 25px 0;
